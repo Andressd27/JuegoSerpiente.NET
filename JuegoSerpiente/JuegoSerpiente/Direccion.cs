@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace JuegoSerpiente
 {
-    enum Direccion
+    public enum Direccion
     {
         Arriba,
         Abajo,

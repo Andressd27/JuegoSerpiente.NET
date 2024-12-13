@@ -8,8 +8,8 @@ namespace JuegoSerpiente
 {
     class Posicion
     {
-        public readonly int X;
-        public readonly int Y;
+        public int X;
+        public int Y;
 
         public Posicion(int x, int y)
         {

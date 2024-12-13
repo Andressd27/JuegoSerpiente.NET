@@ -13,8 +13,9 @@ namespace JuegoSerpiente
         public Caramelo(int x, int y)
         {
             Posicion = new Posicion(x, y);
-            Console.ForegroundColor = ConsoleColor.Red;
+            Console.ForegroundColor = ConsoleColor.Blue;
             Util.DibujarPosicion(Posicion.X, Posicion.Y, "O");
+            Console.ResetColor();
         }
 
 

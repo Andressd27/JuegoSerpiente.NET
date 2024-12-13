@@ -6,17 +6,20 @@ using System.Threading.Tasks;
 
 namespace JuegoSerpiente
 {
-    class Serpiente
+    public class Serpiente
     {
         List<Posicion> Cola { get; set; }
-        Direccion Direccion { get; set; }
+        public Direccion Direccion { get; set; }
         int Puntos { get; set; }
+        public bool EstaViva { get; set; }
 
         public Serpiente(int x, int y)
         {
             Posicion posicionInicial = new Posicion(x, y);
             Cola = new List<Posicion>() { posicionInicial };
             Direccion = Direccion.Abajo;
+            Puntos = 0;
+            EstaViva = true;
         }
 
         public void DibujarSerpiente()
@@ -25,6 +28,7 @@ namespace JuegoSerpiente
             {
                 Console.ForegroundColor = ConsoleColor.Green;
                 Util.DibujarPosicion(posicion.X, posicion.Y, "x");
+                Console.ResetColor();
             }
         }
 
@@ -35,7 +39,33 @@ namespace JuegoSerpiente
 
         public void Moverse()
         {
-            throw new NotImplementedException();
+            List<Posicion> nuevaCola = new List<Posicion>();
+            nuevaCola.Add(ObtenerNuevaPrimeraPosicion());
+
+            Cola = nuevaCola;
+        }
+
+        private Posicion ObtenerNuevaPrimeraPosicion()
+        {
+            int x = Cola.First().X;
+            int y = Cola.First().Y;
+
+            switch (Direccion)
+            {
+                case Direccion.Abajo:
+                    y += 1;
+                    break;
+                case Direccion.Arriba:
+                    y -= 1;
+                    break;
+                case Direccion.Derecha:
+                    x += 1;
+                    break;
+                case Direccion.Izquierda:
+                    x -= 1;
+                    break;
+            }
+            return new Posicion(x, y);
         }
 
         public void ComerCaramelo()
