@@ -1,0 +1,7 @@
+C:\Andres Importante\Cursos\.NET\JuegoSerpiente.NET\JuegoSerpiente\JuegoSerpiente\bin\Debug\JuegoSerpiente.exe.config
+C:\Andres Importante\Cursos\.NET\JuegoSerpiente.NET\JuegoSerpiente\JuegoSerpiente\bin\Debug\JuegoSerpiente.exe
+C:\Andres Importante\Cursos\.NET\JuegoSerpiente.NET\JuegoSerpiente\JuegoSerpiente\bin\Debug\JuegoSerpiente.pdb
+C:\Andres Importante\Cursos\.NET\JuegoSerpiente.NET\JuegoSerpiente\JuegoSerpiente\obj\Debug\JuegoSerpiente.csproj.AssemblyReference.cache
+C:\Andres Importante\Cursos\.NET\JuegoSerpiente.NET\JuegoSerpiente\JuegoSerpiente\obj\Debug\JuegoSerpiente.csproj.CoreCompileInputs.cache
+C:\Andres Importante\Cursos\.NET\JuegoSerpiente.NET\JuegoSerpiente\JuegoSerpiente\obj\Debug\JuegoSerpiente.exe
+C:\Andres Importante\Cursos\.NET\JuegoSerpiente.NET\JuegoSerpiente\JuegoSerpiente\obj\Debug\JuegoSerpiente.pdb
