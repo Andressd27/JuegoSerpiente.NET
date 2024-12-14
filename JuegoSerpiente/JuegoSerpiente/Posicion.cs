@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace JuegoSerpiente
 {
-    class Posicion
+    public class Posicion
     {
         public int X;
         public int Y;

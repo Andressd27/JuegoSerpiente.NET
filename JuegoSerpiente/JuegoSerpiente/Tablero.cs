@@ -1,14 +1,15 @@
 ﻿namespace JuegoSerpiente
 {
-    class Tablero
+    public class Tablero
     {
         public readonly int Altura;
         public readonly int Anchura;
-
+        public bool ContieneCaramelo;
         public Tablero( int altura, int anchura )
         {
             Altura = altura;
             Anchura = anchura;
+            ContieneCaramelo = false;
         }
 
         public void DibujarTablero()

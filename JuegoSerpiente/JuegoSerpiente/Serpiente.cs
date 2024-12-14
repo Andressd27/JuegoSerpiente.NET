@@ -10,7 +10,7 @@ namespace JuegoSerpiente
     {
         List<Posicion> Cola { get; set; }
         public Direccion Direccion { get; set; }
-        int Puntos { get; set; }
+        public int Puntos { get; set; }
         public bool EstaViva { get; set; }
 
         public Serpiente(int x, int y)
@@ -32,15 +32,32 @@ namespace JuegoSerpiente
             }
         }
 
-        public void Morir()
+        public void ComprobarMorir(Tablero tablero)
         {
-            throw new NotImplementedException();
+            //Si nos chocamos contra nosotros
+            Posicion primeraPosicion = Cola.First();
+
+            EstaViva = !((Cola.Count(a => a.X == primeraPosicion.X && a.Y == primeraPosicion.Y) > 1 ) || CabezaEstaEnPared(tablero, Cola.First()));
         }
 
-        public void Moverse()
+        //Si la primera posicion esta en la posicion de los muros
+        public bool CabezaEstaEnPared(Tablero tablero, Posicion primeraPosicion)
+        {
+            return primeraPosicion.Y == 0 || primeraPosicion.Y == tablero.Altura 
+                    || primeraPosicion.X == 0 || primeraPosicion.X == tablero.Anchura;
+        }
+
+        public void Moverse(bool haComido)
         {
             List<Posicion> nuevaCola = new List<Posicion>();
             nuevaCola.Add(ObtenerNuevaPrimeraPosicion());
+            nuevaCola.AddRange(Cola);
+
+            if( !haComido)
+            {
+                //si no ha comido entonces remuevo la ultima posicion puesto que la cabeza ya se añadia otra posicion en la primera posicion por ObtenerNuevaPrimeraPosicion()
+                nuevaCola.Remove(nuevaCola.Last());
+            }
 
             Cola = nuevaCola;
         }
@@ -68,12 +85,20 @@ namespace JuegoSerpiente
             return new Posicion(x, y);
         }
 
-        public void ComerCaramelo()
+        public bool PosicionEnCola(int x,int y)
         {
-            //Aumentar tamaño
-            //Sumar puntos
-            //Quitar caramelo
-            throw new NotImplementedException();
+            return Cola.Any(a => a.X == x && a.Y == y);
+        }
+
+        public bool ComerCaramelo(Caramelo caramelo, Tablero tablero)
+        {
+            if (PosicionEnCola(caramelo.Posicion.X, caramelo.Posicion.Y))
+            {
+                Puntos += 10;
+                tablero.ContieneCaramelo = false;
+                return true;
+            }
+            return false;
         }
     }
 }
